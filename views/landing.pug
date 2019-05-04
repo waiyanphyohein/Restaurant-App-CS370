@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  include common/head.pug
+  +head("Starter MVP")
+  body
+    h1= title
+    p Welcome to #{title}
+    form(action="/",method="POST")
+      input(name="lead_email",type="EMAIL",placeholder="ENTER YOUR EMAIL.")
+      input(type="PASSWORD",placeholder="ENTER YOUR EMAIL.")
+      button(type="submit") Submit
+    if leads
+      h1 Leads
+      for lead in leads
+        p(id=lead.id) 
+          span #{lead.email}
+          | 
+          a(href="/lead/" + lead.id) Details
+          |          
+          button(onclick=`deleteLead('${lead.id}')`) Delete
+          script(src='/javascripts/leads.js')
+    include common/footer.pug
+    +footer()
