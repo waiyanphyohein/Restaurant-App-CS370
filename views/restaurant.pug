@@ -1,0 +1,972 @@
+doctype html
+html(lang='en')
+  head
+    // Basic Page Needs
+    title Homepage
+    meta(charset='UTF-8')
+    meta(name='description', content='AuCreative theme tempalte')
+    meta(name='author', content='AuCreative')
+    meta(name='keywords', content='AuCreative theme template')
+    // Mobile Specific Metas
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', type='image/png', href='images/icons/home-boxed-logo.png')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/bootstrap/css/bootstrap.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/revolution/css/layers.css')
+    link(rel='stylesheet', type='text/css', href='vendor/revolution/css/navigation.css')
+    link(rel='stylesheet', type='text/css', href='vendor/revolution/css/settings.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/css-hamburgers/hamburgers.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/select2/select2.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/daterangepicker-bootstrap/daterangepicker.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/animsition/dist/css/animsition.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='css/animate.css')
+    // ===============================================================================================
+  body.animsition
+    header
+      // Header desktop
+      #wrap_header
+        // Logo
+        .logo.col_header
+          a(href='index.html')
+            img(alt='logo-deli', src='images/icons/logo.png')
+        // Menu
+        .main_nav
+          nav.menu.col_header
+            ul.main_menu
+              li
+                a(href='index.html') Home
+                ul.sub_menu
+                  li
+                    a(href='index.html') Homepage
+                  li
+                    a(href='home-boxed.html') Homepage Boxed
+                  li
+                    a(href='home-outgrid.html') Homepage Outgrid
+                  li
+                    a(href='home-showcase.html') Homepage Showcase
+                  li
+                    a(href='home-vertical-menu.html') Home Vertical Menu
+                  li
+                    a(href='home-onepage.html') Homepage Onepage
+              li
+                a(href='menu-01.html') Menus
+                ul.sub_menu
+                  li
+                    a(href='menu-01.html') Menu 01
+                  li
+                    a(href='menu-02.html') Menu 02
+                  li
+                    a(href='menu-03.html') Menu 03
+                  li
+                    a(href='product-detail.html') Product Detail
+              li
+                a.have_sub_menu(href='reservation-01.html') Reservation
+                ul.sub_menu
+                  li
+                    a(href='reservation-01.html') Reservation V1
+                  li
+                    a(href='reservation-02.html') Reservation V2
+                  li
+                    a(href='reservation-03.html') Reservation V3
+              li
+                a(href='about-us.html') About us
+              li
+                a(href='shop-page.html') Features
+                ul.sub_menu
+                  li
+                    a(href='shop-page.html') Shop Page
+                  li
+                    a(href='shopping-cart.html') Shopping Cart
+                  li
+                    a(href='check-out.html') Check Out
+              li
+                a(href='blog-list-with-sidebar-01.html') Blog
+                ul.sub_menu
+                  li
+                    a(href='blog-list-with-sidebar-01.html') Blog With Sidebar V1
+                  li
+                    a(href='blog-list-with-sidebar-02.html') Blog With Sidebar V2
+                  li
+                    a(href='blog-mansory.html') Blog Mansory
+                  li
+                    a(href='blog-detail.html') Blog Detail
+              li
+                a(href='contact-us.html') Contact
+        // Socials
+        .icon-header.col_header
+          a(href='#')
+            i.fa.fa-facebook(aria-hidden='true')
+          a(href='#')
+            i.fa.fa-twitter(aria-hidden='true')
+          a(href='#')
+            i.fa.fa-tripadvisor(aria-hidden='true')
+          a(href='#')
+            i.fa.fa-instagram(aria-hidden='true')
+      // Header Mobile
+      #wrap_header_mobile
+        // Logo moblie
+        .logo-mobile
+          a(href='index.html')
+            img(alt='logo-deli', src='images/icons/logo-mobile.png')
+        // Button show menu
+        .btn-show-menu
+          button.btn-show-menu-mobile.hamburger.hamburger--squeeze(type='button')
+            span.hamburger-box
+              span.hamburger-inner
+      // Menu Mobile
+      .wrap-side-menu
+        nav.side-menu
+          ul.main-menu
+            li
+              a(href='index.html') Home
+              i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+              ul.sub-menu
+                li
+                  a(href='index.html') Homepage
+                li
+                  a(href='home-boxed.html') Homepage Boxed
+                li
+                  a(href='home-outgrid.html') Homepage Outgrid
+                li
+                  a(href='home-showcase.html') Homepage Showcase
+                li
+                  a(href='home-vertical-menu.html') Home Vertical Menu
+                li
+                  a(href='home-onepage.html') Homepage Onepage
+            li
+              a(href='menu-01.html') Menus
+              i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+              ul.sub-menu
+                li
+                  a(href='menu-01.html') Menu 01
+                li
+                  a(href='menu-02.html') Menu 02
+                li
+                  a(href='menu-03.html') Menu 03
+                li
+                  a(href='product-detail.html') Product Detail
+            li
+              a(href='reservation-01.html') Reservation
+              i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+              ul.sub-menu
+                li
+                  a(href='reservation-01.html') Reservation V1
+                li
+                  a(href='reservation-02.html') Reservation V2
+                li
+                  a(href='reservation-03.html') Reservation V3
+            li
+              a(href='about-us.html') About us
+            li
+              a(href='shop-page.html') Features
+              i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+              ul.sub-menu
+                li
+                  a(href='shop-page.html') Shop Page
+                li
+                  a(href='shopping-cart.html') Shopping Cart
+                li
+                  a(href='check-out.html') Check Out
+            li
+              a(href='blog-list-with-sidebar-01.html') Blog
+              i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+              ul.sub-menu
+                li
+                  a(href='blog-list-with-sidebar-01.html') Blog With Sidebar V1
+                li
+                  a(href='blog-list-with-sidebar-02.html') Blog With Sidebar V2
+                li
+                  a(href='blog-mansory.html') Blog Mansory
+                li
+                  a(href='blog-detail.html') Blog Detail
+            li
+              a(href='contact-us.html') Contact
+    section#slider-deli
+      // Slider
+      .rev_slider_wrapper.fullscreen-container
+        #rev_slider_1.rev_slide.fullscreenbanner(style='display: none;')
+          ul
+            // Slide 1
+            li(data-transition='fade', data-delay='51000')
+              img.rev-slidebg(src='images/slide-01.jpg', alt='Seasonal Flavours', data-bgposition='center center', data-bgfit='cover', data-bgrepeat='no-repeat')
+              .rs-background-video-layer(data-ytid='pMN5D5FWCxI', data-volume='mute', data-forcerewind='on', data-nextslideatend='true', data-videoloop='loopandnoslidestop', data-videoattributes='version=3&enablejsapi=1&html5=1&hd=1&wmode=opaque&showinfo=0&rel=0&\
+              origin=http://templates.aucreative.co', data-videorate='1', data-videowidth='100%', data-videoheight='100%', data-videocontrols='none', data-videostartat='00:30', data-videoendat='01:21', data-forcecover='1', data-aspectratio='16:9', data-autoplay='true', data-autoplayonlyfirsttime='false')
+              h3.tp-caption.tp-resizeme.caption-1(data-frames='[{"delay":500,"speed":1800,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='middle', data-hoffset='0', data-voffset="['-50','-50','-100','-120']", data-width="['1140','960','720','540']", data-lineheight="['150', '150', '120', '100']", data-fontsize="['110', '110', '100', '90']", data-height="['auto']") Seasonal Flavours
+              #btn-slide-1.tp-caption.tp-resizeme.btn-slide(data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"y:bottom;rX:-20deg;rY:-20deg;rZ:0deg;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['80','80','110','110']", data-width="['910','910','380','380']", data-height="['auto']")
+                a.btn1(href='menu-01.html') VIEW MENU
+                a.btn2(href='reservation-02.html') BOOK A TABLE
+            // Slide 2
+            li(data-transition='fade')
+              img.rev-slidebg(src='images/slide-02.jpg', alt='Fresh Ingredients')
+              h3.tp-caption.tp-resizeme.caption-1(data-frames='[{"delay":500,"split":"chars","splitdelay":0.05,"speed":1500,"frame":"0","from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['-80','-80','-140','-140']", data-width="['1140','960','720','540']", data-lineheight="['150', '150', '120', '100']", data-fontsize="['110', '110', '100', '90']", data-height="['auto']") Fresh Ingredients
+              .tp-caption.tp-resizeme.btn-slide.caption-2(data-frames='[{"delay":2500,"speed":1000,"frame":"0","from":"z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['15','15','15','5']", data-width="['910','910','380','380']", data-height="['auto']") Fresh. Delicious. Healthy.
+              #btn-slide-2.tp-caption.tp-resizeme.btn-slide(data-frames='[{"delay":3100,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['110','110','140','140']", data-width="['910','910','380','380']", data-height="['auto']")
+                a.btn1(href='menu-01.html') VIEW MENU
+                a.btn2(href='reservation-02.html') BOOK A TABLE
+            // Slide 3
+            li(data-transition='fade')
+              img.rev-slidebg(src='images/slide-03.jpg', alt='Deli Restaurant')
+              h3.tp-caption.tp-resizeme.caption-1(data-frames='[{"delay":500,"split":"chars","splitdelay":0.05,"speed":1300,"frame":"0","from":"y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['-50','-50','-100','-120']", data-width="['1140','960','720','540']", data-lineheight="['150', '150', '120', '100']", data-fontsize="['110', '110', '100', '90']", data-height="['auto']") Deli Restaurant
+              #btn-slide-3.tp-caption.tp-resizeme.btn-slide(data-frames='[{"delay":2300,"speed":1500,"frame":"0","from":"y:bottom;rZ:90deg;sX:2;sY:2;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]', data-x='center', data-y='center', data-hoffset='0', data-voffset="['80','80','110','110']", data-width="['910','910','380','380']", data-height="['auto']")
+                a.btn1(href='menu-01.html') VIEW MENU
+                a.btn2(href='reservation-02.html') BOOK A TABLE
+      // End Slider
+      // Our Menu
+      section.our-menu
+        .container
+          // title our menu
+          .wrap-title-our-menu.row
+            .col-12.title-our-menu
+              h6 try & discover
+              h2 Our Menus
+          // food menu
+          .row.wrap-food-menu
+            #food-menu
+              ul#myTab.nav.nav-tabs(role='tablist')
+                li.nav-item
+                  a#home-tab.nav-link.active(data-toggle='tab', href='#lunch', role='tab', aria-controls='lunch', aria-expanded='true') Lunch
+                li.nav-item
+                  a#tab-dinner.nav-link(data-toggle='tab', href='#dinner', role='tab', aria-controls='dinner') Dinner
+                li.nav-item
+                  a#tab-dessert.nav-link(data-toggle='tab', href='#dessert', role='tab', aria-controls='dessert') Dessert
+                li.nav-item
+                  a#tab-private-dinner.nav-link(data-toggle='tab', href='#private-dinner', role='tab', aria-controls='private-dinner') Private Dinner
+          // list food
+          #myTabContent.tab-content
+            // Lunch
+            #lunch.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab')
+              .wrap-list-food
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.2s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.2s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-01.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pine nut sbrisalona
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $20.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.2s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.2s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-05.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Potato gnocchi
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $10.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.4s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.4s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-02.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Lobster caponata
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $10.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.4s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.4s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-06.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pork ribollita
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $15.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.6s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.6s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-03.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Chocolate budino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $15.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.6s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.6s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-07.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Livorno style caccuchino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $30.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.8s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.8s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-04.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Charred octopus
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row.wow.fadeInDown(data-wow-delay='0.8s')
+                      .col-12.col-sm-2.img-list-food.wow.zoomIn(data-wow-delay='0.8s')
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-08.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Baulletti
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+            // Dinner
+            #dinner.tab-pane.fade(role='tabpanel', aria-labelledby='tab-dinner')
+              .wrap-list-food
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-03.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Chocolate budino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $15.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-07.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Livorno style caccuchino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $30.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-04.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Charred octopus
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-08.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Baulletti
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-01.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pine nut sbrisalona
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $20.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-05.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Potato gnocchi
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $10.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-02.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Lobster caponata
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $10.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-06.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pork ribollita
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $15.00
+            // Dessert
+            #dessert.tab-pane.fade(role='tabpanel', aria-labelledby='tab-dessert')
+              .wrap-list-food
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-02.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Lobster caponata
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $10.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-06.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pork ribollita
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $15.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-03.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Chocolate budino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $15.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-07.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Livorno style caccuchino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $30.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-01.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pine nut sbrisalona
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $20.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-05.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Potato gnocchi
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $10.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-04.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Charred octopus
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-08.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Baulletti
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+            // Private Dinner
+            #private-dinner.tab-pane.fade(role='tabpanel', aria-labelledby='tab-private-dinner')
+              .wrap-list-food
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-04.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Charred octopus
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-08.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Baulletti
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proinin velit odio mollis ac tortor eget ullamcorper
+                      .price-food.col-12.col-sm-2 $5.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-01.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pine nut sbrisalona
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $20.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-05.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Potato gnocchi
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Proin lacinia nisl ut ultricies posuere nulla ut
+                      .price-food.col-12.col-sm-2 $10.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-02.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Lobster caponata
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $10.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-06.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Pork ribollita
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Suspendisse sodales congue maximus
+                      .price-food.col-12.col-sm-2 $15.00
+                .row.list-food
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-03.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Chocolate budino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $15.00
+                  .col-md-10.col-lg-6
+                    // item food
+                    .item-food.row
+                      .col-12.col-sm-2.img-list-food
+                        a(href='product-detail.html')
+                          img(alt='food', src='images/img-our-menu-07.png')
+                      .col-12.col-sm-8.text-list-food
+                        .name-price.row
+                          .name-food.col-12.col-sm-auto
+                            a.hover-link-color(href='product-detail.html') Livorno style caccuchino
+                          .line-food.col
+                            .add-line-run
+                        .row
+                          .col-12.col-sm-12.info-food
+                            | Interdum et malesuada fames primis in faucibus
+                      .price-food.col-12.col-sm-2 $30.00
+      // Banner
+      .parallax-banner
+        .content-banner
+          .text-banner.wow.zoomIn
+            h3 Feeling at Home
+          .symbol-banner.wow.zoomIn(data-wow-delay='0.5s')
+            img(alt='symbol', src='images/icons/symbol-banner.png')
+            #short-line-left.line-symbol-banner.wow.fadeInLeftBig(data-wow-delay='0.5s')
+            #long-line-left.line-symbol-banner.wow.fadeInLeftBig(data-wow-delay='0.5s')
+            #short-line-right.line-symbol-banner.wow.fadeInRightBig(data-wow-delay='0.5s')
+            #long-line-right.line-symbol-banner.wow.fadeInRightBig(data-wow-delay='0.5s')
+      // Event
+      section#event
+        .container
+          // title event
+          .wrap-title-event.row
+            #title-event.col-12
+              h6 Discover Our
+              h2 Upcoming Events
+            .content-event.col-sm-10.col-md-8.col-lg-4.wow.fadeInUp(data-wow-delay='0.2s')
+              .img-event
+                a(href='blog-detail.html')
+                  img(alt='picture-event', src='images/img-event-01.jpg')
+              h3
+                a.hover-link-color(href='blog-detail.html') Deli Summer Auscoutics
+              p
+                | Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat comodone, donec pretium odio nec sagittis euismod.
+              span.date-event
+                i.fa.fa-calendar(aria-hidden='true')
+                |  21 June, 2017
+              span.time-event
+                i.fa.fa-clock-o(aria-hidden='true')
+                |  10:00AM - 22:00PM
+            .content-event.col-sm-10.col-md-8.col-lg-4.wow.fadeInUp(data-wow-delay='0.4s')
+              .img-event
+                a(href='blog-detail.html')
+                  img(alt='picture-event', src='images/img-event-02.jpg')
+              h3
+                a.hover-link-color(href='blog-detail.html') The Live Jazz Music Night
+              p
+                | Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat comodone, donec pretium odio nec sagittis euismod.
+              span.date-event
+                i.fa.fa-calendar(aria-hidden='true')
+                |  22 June, 2017
+              span.time-event
+                i.fa.fa-clock-o(aria-hidden='true')
+                |  19:00PM - 23:00PM
+            .content-event.col-sm-10.col-md-8.col-lg-4.wow.fadeInUp(data-wow-delay='0.6s')
+              .img-event
+                a(href='blog-detail.html')
+                  img(alt='picture-event', src='images/img-event-03.jpg')
+              h3
+                a.hover-link-color(href='blog-detail.html') Mother’s Day Celebrating at Deli
+              p
+                | Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat comodone, donec pretium odio nec sagittis euismod.
+              span.date-event
+                i.fa.fa-calendar(aria-hidden='true')
+                |  23 June, 2017
+              span.time-event
+                i.fa.fa-clock-o(aria-hidden='true')
+                |  10:00AM - 22:00PM
+      // Reservation
+      .parallax-banner-2
+        .content-reservation
+          .text-reservation.wow.fadeInUp(data-wow-delay='0.2')
+            h6 Reservation
+            h3 Book a table
+          .container
+            form
+              .input-reservation.row.wow.flipInX(data-wow-delay='0.7s')
+                .wrap-input-find.col-12.col-sm-12.col-md-10
+                  .input-find.row
+                    .col-10.col-sm-8.col-md-4
+                      select.chose-people(name='chose-people')
+                        option 1 people
+                        option 2 people
+                        option 3 people
+                        option 4 people
+                        option 5 people
+                        option 6 people
+                    .col-10.col-sm-8.col-md-4.chose-calendar
+                      input.my-calendar(type='text', name='calender')
+                    .col-10.col-sm-8.col-md-4
+                      select.chose-time(name='chose-time')
+                        option 7:00 PM
+                        option 8:00 PM
+                        option 9:00 PM
+                .col-5.col-sm-3.col-md-2
+                  button.btn-find-table FIND A TABLE
+      footer
+        .container
+          .content-footer.row
+            .column-footer.col-lg-5.col-md-8.col-sm-7
+              h3 Contact information
+              ul
+                li ADDRESS: 100 Tenth Avenue, New York City, NY 1001
+                li FOR BOOKING: (044) 359 0173
+                li#follow-us
+                  | FOLLOW US ON: 
+                  a(href='#')
+                    i.fa.fa-facebook(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-twitter(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-tripadvisor(aria-hidden='true')
+                  a(href='#')
+                    i.fa.fa-instagram(aria-hidden='true')
+            .column-footer.col-lg-4.col-md-5.col-sm-7
+              h3 Restaurant hours
+              ul#restaurant-hours
+                li
+                  span.span-left LUNCH:
+                li
+                  span.span-left Monday - Friday
+                  span.span-right 11:30AM - 2:00PM
+                li
+                  span.span-left DINNER:
+                li
+                  span.span-left Monday - Friday
+                  span.span-right 5:30PM - 11:00PM
+                li
+                  span.span-left Saturday - Sunday
+                  span.span-right 4:30PM - 10:00PM
+              .line-divide.first-line
+            .column-footer.col-lg-3.col-md-3.col-sm-7
+              h3 Useful links
+              ul#useful-links
+                li
+                  span.span-left
+                    a(href='index.html') Home
+                  span.span-right
+                    a(href='shop-page.html') Features
+                li
+                  span.span-left
+                    a(href='menu-01.html') Menus
+                  span.span-right
+                    a(href='blog-list-with-sidebar-01.html') Blog
+                li
+                  span.span-left
+                    a(href='reservation-01.html') Reservation
+                  span.span-right
+                    a(href='contact-us.html') Contact us
+                li
+                  a(href='about-us.html') About us
+              .line-divide.second-line
+        .wrap-bottom-footer
+          .container
+            .bottom-footer.row.justify-content-between
+              .col-12.col-sm-7 © 2017 DesignGalaxy8. All rights reserved.
+              .col-12.col-sm-5
+                span Privacy policy
+                span Terms of use
+      // Back to top
+      #myBtn.btn-back-to-top
+        span.symbol-btn-back-to-top
+          i.fa.fa-angle-double-up(aria-hidden='true')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/jquery/jquery-3.2.1.min.js')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/wow/wow.min.js')
+      script(type='text/javascript').
+        new WOW().init();
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/animsition/dist/js/animsition.min.js')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/bootstrap/js/popper.min.js')
+      script(type='text/javascript', src='vendor/bootstrap/js/bootstrap.min.js')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/revolution/js/jquery.themepunch.tools.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/jquery.themepunch.revolution.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.video.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.carousel.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.slideanims.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.actions.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.kenburn.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.navigation.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.migration.min.js')
+      script(type='text/javascript', src='vendor/revolution/js/extensions/revolution.extension.parallax.min.js')
+      script(src='js/slide-custom.js')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/select2/select2.min.js')
+      // ===============================================================================================
+      script(type='text/javascript', src='vendor/daterangepicker-bootstrap/moment.min.js')
+      script(type='text/javascript', src='vendor/daterangepicker-bootstrap/daterangepicker.js')
+      // ===============================================================================================
+      script(src='js/main.js')

@@ -1,6 +1,7 @@
 exports.get_MenuItem = function(req,res,next){
     return models.MenuItem.update({
-        email: req.body.lead_email        
+        Name: req.body.Name,
+        Price: req.body.price,
     },
     {
         where:{

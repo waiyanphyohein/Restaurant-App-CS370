@@ -1,7 +1,7 @@
 'use strict'
 module.exports = {
     up:(queryInterface,Sequelize) => {
-        return queryInterface.createTable('MenuItem',{
+        return queryInterface.createTable('MenuRestaurant',{
             
             MenuID: {
                 allowNull : false,
@@ -9,7 +9,7 @@ module.exports = {
                 type : Sequelize.UUID,
                 defaultValue: Sequelize.UUIDV4,
             },
-            Menu_List_Id : {
+            RestaurantID : {
                 allowNull: false,
                 type: Sequelize.UUID,              
             },
@@ -24,6 +24,6 @@ module.exports = {
         });
     },
     down : (queryInterface,Sequelize) => {
-        return queryInterface.dropTable('MenuItem');
+        return queryInterface.dropTable('MenuRestaurant');
     }
 };

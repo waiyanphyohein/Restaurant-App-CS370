@@ -9,6 +9,11 @@ module.exports = {
                 type: Sequelize.UUID,
                 defaultValue: Sequelize.UUIDV4,
             },
+            // FROM MENU_ITEM_TABLE CONNECTION
+            MenuID:{
+                allowNull: false,
+                type: Sequelize.UUID
+            },
             Name: {
                 primaryKey: true,
                 allowNull : false,
