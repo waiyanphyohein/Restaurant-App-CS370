@@ -1,4 +1,4 @@
-mixin navbar()
+mixin navbar(user)
     .main_nav
         nav.menu.col_header
             nav.navbar.navbar-expand.navbar-light.bg-light
@@ -11,4 +11,18 @@ mixin navbar()
                             a.nav-link(href="/") Home
                         li.nav-item
                             a.nav-link(href="/leads") Leads
+                .navbar-right 
+                    if user
+                        .dropdown
+                            a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                | Welcome #{user.email}
+                            .dropdown-menu(aria-labelledby='dropdownMenuLink')
+                                a.dropdown-item(href='/logout') Logout                            
+                .navbar-right
+                    if !user
+                        ul.navbar-nav.mr-auto
+                            li.nav-item
+                                a.nav-link(href="/signup") SignUp
+                            li.nav-item
+                                a.nav-link(href="/login") Login
                         
