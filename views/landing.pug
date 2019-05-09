@@ -2,16 +2,19 @@ doctype html
 html(lang='en')
   include common/head.pug
   +head("Starter MVP")
-  body       
+  body            
     header
       include common/navbar.pug   
       +navbar(user)
+      //- form(action="/restaurant/search",method="POST")
+      //-   input(type="number",name="X",placeholder=0) X
+      //-   input(type="number",name="Y",placeholder=0) Y
       .container
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left-.pr-md-5
             h1.md-3 Minimum Viable Landing Page
-            p.lead This tutorial teaches you how to build a NodeJS web application covering key topics
-            p.lead.mb-4 Learn how to launch a landing page and start collecting sales leads.
+            p.lead Restaurants
+            p.lead.mb-4 To show list of restaurants from DB.
             form(action="/",method="POST")
               .input-group.mb-3
                 input(name="lead_email",type="EMAIL",placeholder="ENTER YOUR EMAIL.").form-control

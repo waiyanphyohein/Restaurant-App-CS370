@@ -1,0 +1,69 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Restaurants")
+  body       
+    .bg 
+    header
+        include ../common/navbar.pug   
+        +navbar(user)
+        style.
+          a.custom-card,
+          a.custom-card:hover {
+          color: gray;
+          }                  
+        .section
+          h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 #{title}                  
+          .container.col-md-6
+            //- h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Search                  
+            nav.navbar.navbar-light.bg-light.sticky-top.align-items-center.col-md-12
+              .row.align-items-center
+                .col
+                  form.form-inline.md-form.mr-auto.mb-12(action='/restaurants/search',method='POST')
+                    .form-row
+                      .input-group
+                        .form-group-4
+                          .col-md-4
+                            p 
+                            b Name
+                            input(type='text',name="name" placeholder='Restaurant Name', aria-label='Search',max="100",min='0')                   
+                        .form-group                     
+                          .col-md-4                   
+                            p
+                            b X
+                            input(type='number',name="X" placeholder='0', aria-label='Search',max="100",min='0')                   
+                        .form-group                      
+                          .col-md-4
+                            p 
+                            b Y
+                            input(type='number',name="Y" placeholder='0', aria-label='Search',max="100",min='0')                           
+                      button.btn.aqua-gradient.btn-rounded.btn-sm.my-0(type='submit') Search  
+          .container                          
+              
+              if restaurants
+                for restaurant in restaurants
+                    a(href='/restaurant/'+restaurant.RestaurantID+'/menu')                 
+                      .card
+                        // Card content
+                        .card-body.elegant-color.white-text.rounded-bottom.bg-info.mb-3                  
+                          // Title
+                          h4.card-title #{restaurant.Name}
+                          hr.hr-light
+                          // Text
+                          p.card-text.white-text.mb-4
+                            | Description: #{restaurant.Description}
+                          p.card-text.white-text.mb-4
+                            | Opening Hour: #{restaurant.Opening_Hours}
+                          p.card-text.white-text.mb-4
+                            | Location: (#{restaurant.X},#{restaurant.Y}) 
+                          p.card-text.white-text.mb-4
+                            | Theme: #{restaurant.Theme}
+                          // Link
+                          a.white-text.d-flex.justify-content-end(href='/restaurant/'+restaurant.RestaurantID)
+                            h5
+                              | Learn More 
+                              i.fas.fa-angle-double-right
+                    br
+                    // Card Dark      
+                 
+                    

@@ -2,10 +2,11 @@ doctype html
 html(lang='en')
   include ../common/head.pug
   +head("Leads")
-  body       
+  body      
+    .bg 
     header
         include ../common/navbar.pug   
-        +navbar()
+        +navbar(user)
         .container
             .row.align-items-center
                 .col-md-6.order-md-1.text-center.text-md-left-.pr-md-5                

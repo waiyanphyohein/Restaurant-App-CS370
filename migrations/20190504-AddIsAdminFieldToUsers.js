@@ -7,7 +7,7 @@ const columnAndTypes = [{
             type: Sequelize.BOOLEAN,
             allowNull : true,
             defaultValue: false,
-        }
+        };
     }
 }];
 

@@ -1,24 +1,28 @@
 mixin navbar(user)
     .main_nav
         nav.menu.col_header
-            nav.navbar.navbar-expand.navbar-light.bg-light
-                a.navbar-brand(href='/') Restaurants
+            nav.navbar.navbar-expand-lg.navbar-dark.indigo
+                a.navbar-brand(href='/') CS370 Project 2
                 button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon                
                 .collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
                         li.nav-item
-                            a.nav-link(href="/") Home
+                            a.nav-link(href="/") Home  
+                        if user && user.is_admin
+                            li.nav-item
+                                a.nav-link(href="/leads") Leads
                         li.nav-item
-                            a.nav-link(href="/leads") Leads
+                            a.nav-link(href="/restaurants") Restaurants
                 .navbar-right 
                     if user
+                        // Dropdown primary
                         .dropdown
-                            a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                                | Welcome #{user.email}
-                            .dropdown-menu(aria-labelledby='dropdownMenuLink')
-                                a.dropdown-item(href='/logout') Logout                            
-                .navbar-right
+                            // Trigger
+                            a.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Welcome #{user.email}
+                            // Menu
+                            .dropdown-menu.dropdown-primary
+                                a.dropdown-item(href='/logout') Logout                                                                                               
                     if !user
                         ul.navbar-nav.mr-auto
                             li.nav-item

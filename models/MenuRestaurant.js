@@ -1,6 +1,6 @@
 'use strict'
 module.exports= (sequelize,DataTypes) => {
-    var MenuItem = sequelize.define('MenuRestaurant',{
+    var MenuRestaurant = sequelize.define('MenuRestaurant',{
         MenuID: {
             allowNull : false,
             primaryKey: true,
@@ -12,5 +12,5 @@ module.exports= (sequelize,DataTypes) => {
             type: DataTypes.UUID,              
         },
     });
-    return MenuItem;
+    return MenuRestaurant;
 };

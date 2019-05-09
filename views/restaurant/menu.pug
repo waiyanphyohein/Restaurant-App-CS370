@@ -1,0 +1,140 @@
+doctype html
+html(lang='en')
+  include common/head.pug
+  +head("Restaurants")
+  body
+    header
+      include common/navbar.pug   
+      +navbar(user)
+      // JQuery
+      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js')
+      // Bootstrap tooltips
+      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+      // Bootstrap core JavaScript
+      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js')
+      // MDB core JavaScript
+      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/js/mdb.min.js')
+      .wrapper-editor
+        .block.my-4
+          .d-flex.justify-content-center
+            p.h5.text-primary.createShowP 0 row selected
+        .row.d-flex.justify-content-center.modalWrapper
+          #modalAdd.modal.fade.addNewInputs(tabindex='-1', role='dialog', aria-labelledby='modalAdd', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header.text-center
+                  h4.modal-title.w-100.font-weight-bold.text-primary.ml-5 Add new form
+                  button.close.text-primary(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                .modal-body.mx-3
+                  .md-form.mb-5
+                    input#inputName.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='inputName') Name
+                  .md-form.mb-5
+                    input#inputPosition.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='inputPosition') Position
+                  .md-form.mb-5
+                    input#inputOfficeInput.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='inputOfficeInput') Office
+                  .md-form.mb-5
+                    input#inputAge.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='inputAge') Age
+                  .md-form.mb-5
+                    input#inputDate.form-control(type='date', placeholder='Select Date')
+                    label(data-error='wrong', data-success='right', for='inputDate')
+                  .md-form.mb-5
+                    input#inputSalary.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='inputSalary') Salary
+                .modal-footer.d-flex.justify-content-center.buttonAddFormWrapper
+                  button.btn.btn-outline-primary.btn-block.buttonAdd(data-dismiss='modal')
+                    | Add form
+                    i.fas.fa-paper-plane-o.ml-1
+          .text-center
+            a.btn.btn-info.btn-rounded.btn-sm(href='', data-toggle='modal', data-target='#modalAdd')
+              | Add
+              i.fas.fa-plus-square.ml-1
+          #modalEdit.modal.fade.modalEditClass(tabindex='-1', role='dialog', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header.text-center
+                  h4.modal-title.w-100.font-weight-bold.text-secondary.ml-5 Edit form
+                  button.close.text-secondary(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                .modal-body.mx-3
+                  .md-form.mb-5
+                    input#formNameEdit.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='formNameEdit') Name
+                  .md-form.mb-5
+                    input#formPositionEdit.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='formPositionEdit') Position
+                  .md-form.mb-5
+                    input#formOfficeEdit.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='formOfficeEdit') Office
+                  .md-form.mb-5
+                    input#formAgeEdit.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='formAgeEdit') Age
+                  .md-form.mb-5
+                    input#formDateEdit.form-control.datepicker(type='text')
+                    label(data-error='wrong', data-success='right', for='formDateEdit') Date
+                  .md-form.mb-5
+                    input#formSalaryEdit.form-control.validate(type='text')
+                    label(data-error='wrong', data-success='right', for='formSalaryEdit') Salary
+                .modal-footer.d-flex.justify-content-center.editInsideWrapper
+                  button.btn.btn-outline-secondary.btn-block.editInside(data-dismiss='modal')
+                    | Edit
+                    | form
+                    i.fas.fa-paper-plane-o.ml-1
+          .text-center.buttonEditWrapper
+            button.btn.btn-info.btn-rounded.btn-sm.buttonEdit(data-toggle='modal', data-target='#modalEdit', disabled='')
+              | Edit
+              i.fas.fa-pencil-square-o.ml-1
+          #modalDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalDelete', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header.text-center
+                  h4.modal-title.w-100.font-weight-bold.ml-5.text-danger Delete
+                  button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                .modal-body.mx-3
+                  p.text-center.h4 Are you sure to delete selected row?
+                .modal-footer.d-flex.justify-content-center.deleteButtonsWrapper
+                  button#btnYes.btn.btn-danger.btnYesClass(type='button', data-dismiss='modal') Yes
+                  button#btnNo.btn.btn-primary.btnNoClass(type='button', data-dismiss='modal') No
+          .text-center
+            button.btn.btn-danger.btn-sm.btn-rounded.buttonDelete(data-toggle='modal', disabled='', data-target='#modalDelete')
+              | Delete
+              i.fas.fa-times.ml-1
+        table#dtBasicExample.table.table-striped.table-bordered(cellspacing='0', width='100%')
+          thead
+            tr
+              th.th-sm
+                | Name
+              th.th-sm
+                | Position
+              th.th-sm
+                | Office
+              th.th-sm
+                | Age
+              th.th-sm
+                | Start date
+              th.th-sm
+                | Salary
+          tbody
+            tr(data-href="/").clickable-row
+              td Tiger Nixon
+              td System Architect
+              td Edinburgh
+              td 61
+              td 2011/04/25
+              td $320,800
+            tr.clickable-row
+              td Garrett Winters
+              td Accountant
+              td Tokyo
+              td 63
+              td 2011/07/25
+              td $170,750            
+      script(href='javascripts/menuitems.js')
+      include common/footer.pug
+      +footer()
+

@@ -4,18 +4,22 @@ html(lang='en')
   +head("Leads")
   body       
     header
+        link(href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', rel='stylesheet')
+        link(href='/public/stylesheets/css/addons/datatables.min.css', rel='stylesheet')
+        link(href='/public/stylesheets/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/public/stylesheets/css/mdb.min.css', rel='stylesheet')
+        link(href='/public/stylesheets/css/style.css', rel='stylesheet')        
         include ../common/navbar.pug   
-        +navbar()
+        +navbar(user)
         .container
             .row.align-items-center
-                .col-md-6.order-md-1.text-center.text-md-left-.pr-md-5                
+                .col-md-6.order-md-1.text-center.text-md-left-.pr-md-6                
                     h1 Leads
-                    table.table
+                    table.table.table-hover
                         thead.thread-dark
                         tr
                             th(scope="col") Email
-                            th(scope="col") Actions
-                            th(scope="col")
+                            th(scope="col") Actions                        
                         tr
                         tbody
                         for lead in leads
@@ -23,9 +27,68 @@ html(lang='en')
                             td 
                                 span #{lead.email}
                             td
-                                a(href="/lead/" + lead.id) Details 
-                            td          
-                                button(onclick=`deleteLead('${lead.id}')`).btn.btn-outline-primary Delete
+                                a(href="/lead/" + lead.id) Details
+            // Editable table
+            .card
+                h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Leads
+                .card-body
+                    #table.table-editable
+                    table#dtBasicExample.table.table-bordered.table-responsive-md.table-striped.table-hover.table-sm.text-center(cellspacing='0', width='100%')
+                        thread.thread-dark
+                            tr
+                                th.text-center ID
+                                th.text-center Email
+                                th.text-center Action                            
+                            tr
+                        tbody                        
+                        for lead in leads
+                            tr(id=lead.id)
+                            td.pt-3-half
+                                span #{lead.id}
+                            td.pt-3-half
+                                span #{lead.email}
+                            //- td.pt-3-half
+                            //-     span.table-up
+                            //-         a.indigo-text(href='#!')
+                            //-         i.fas.fa-long-arrow-alt-up(aria-hidden='true')
+                            //-     span.table-down
+                            //-         a.indigo-text(href='#!')
+                            //-         i.fas.fa-long-arrow-alt-down(aria-hidden='true')
+                            td
+                                span.table-remove
+                                    button.btn.btn-primary.btn-rounded.btn-sm.my-0(type='button') Edit
+                                span.table-remove
+                                    button.btn.btn-danger.btn-rounded.btn-sm.my-0(type='button') Remove
+                            
+                        // This is our clonable table line
+                        
+                        //- // This is our clonable table line
+                        //- tr.hide
+                        //-     td.pt-3-half(contenteditable='true') Elisa Gallagher
+                        //-     td.pt-3-half(contenteditable='true') 31
+                        //-     td.pt-3-half(contenteditable='true') Portica
+                        //-     td.pt-3-half(contenteditable='true') United Kingdom
+                        //-     td.pt-3-half(contenteditable='true') London
+                        //-     td.pt-3-half
+                        //-         span.table-up
+                        //-             a.indigo-text(href='#!')
+                        //-             i.fas.fa-long-arrow-alt-up(aria-hidden='true')
+                        //-         span.table-down
+                        //-             a.indigo-text(href='#!')
+                        //-             i.fas.fa-long-arrow-alt-down(aria-hidden='true')
+                        //-     td
+                        //-         span.table-remove
+                        //-             button.btn.btn-danger.btn-rounded.btn-sm.my-0(type='button') Remove
+            
+
+                             
+    script(type='text/javascript', src='/javascripts/addons/datatables.min.js')    
+    script.
+        $(document).ready(function () 
+        {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
     include ../common/footer.pug
     +footer()
     //- script(src='https://code.jquery.com/jquery-3.2.1.min.js')

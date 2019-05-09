@@ -12,9 +12,7 @@ html(lang='en')
             h1 Edit Lead
             form(action="/lead/"+lead.id+"/edit",method="POST")
               .input-group.mb-3
-                input(name="lead_email",type="email",placeholder="Emter your email address",value=lead.email)
-                .form-control
-                .input-group-append
-                  button(type="submit").btn.btn-outline-primary Save
+                input(name="lead_email",type="email",placeholder="Enter your email address",value=lead.email)              
+                button(type="submit").btn.blue-gradient Save
     include ../common/footer.pug
     +footer()
