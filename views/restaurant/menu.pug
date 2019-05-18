@@ -1,140 +1,270 @@
 doctype html
 html(lang='en')
-  include common/head.pug
-  +head("Restaurants")
-  body
+  include ../common/head.pug
+  +head("Menu")
+  body       
     header
-      include common/navbar.pug   
-      +navbar(user)
-      // JQuery
-      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js')
-      // Bootstrap tooltips
-      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
-      // Bootstrap core JavaScript
-      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js')
-      // MDB core JavaScript
-      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/js/mdb.min.js')
-      .wrapper-editor
-        .block.my-4
-          .d-flex.justify-content-center
-            p.h5.text-primary.createShowP 0 row selected
-        .row.d-flex.justify-content-center.modalWrapper
-          #modalAdd.modal.fade.addNewInputs(tabindex='-1', role='dialog', aria-labelledby='modalAdd', aria-hidden='true')
-            .modal-dialog(role='document')
-              .modal-content
-                .modal-header.text-center
-                  h4.modal-title.w-100.font-weight-bold.text-primary.ml-5 Add new form
-                  button.close.text-primary(type='button', data-dismiss='modal', aria-label='Close')
-                    span(aria-hidden='true') ×
-                .modal-body.mx-3
-                  .md-form.mb-5
-                    input#inputName.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='inputName') Name
-                  .md-form.mb-5
-                    input#inputPosition.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='inputPosition') Position
-                  .md-form.mb-5
-                    input#inputOfficeInput.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='inputOfficeInput') Office
-                  .md-form.mb-5
-                    input#inputAge.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='inputAge') Age
-                  .md-form.mb-5
-                    input#inputDate.form-control(type='date', placeholder='Select Date')
-                    label(data-error='wrong', data-success='right', for='inputDate')
-                  .md-form.mb-5
-                    input#inputSalary.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='inputSalary') Salary
-                .modal-footer.d-flex.justify-content-center.buttonAddFormWrapper
-                  button.btn.btn-outline-primary.btn-block.buttonAdd(data-dismiss='modal')
-                    | Add form
-                    i.fas.fa-paper-plane-o.ml-1
-          .text-center
-            a.btn.btn-info.btn-rounded.btn-sm(href='', data-toggle='modal', data-target='#modalAdd')
-              | Add
-              i.fas.fa-plus-square.ml-1
-          #modalEdit.modal.fade.modalEditClass(tabindex='-1', role='dialog', aria-hidden='true')
-            .modal-dialog(role='document')
-              .modal-content
-                .modal-header.text-center
-                  h4.modal-title.w-100.font-weight-bold.text-secondary.ml-5 Edit form
-                  button.close.text-secondary(type='button', data-dismiss='modal', aria-label='Close')
-                    span(aria-hidden='true') ×
-                .modal-body.mx-3
-                  .md-form.mb-5
-                    input#formNameEdit.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='formNameEdit') Name
-                  .md-form.mb-5
-                    input#formPositionEdit.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='formPositionEdit') Position
-                  .md-form.mb-5
-                    input#formOfficeEdit.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='formOfficeEdit') Office
-                  .md-form.mb-5
-                    input#formAgeEdit.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='formAgeEdit') Age
-                  .md-form.mb-5
-                    input#formDateEdit.form-control.datepicker(type='text')
-                    label(data-error='wrong', data-success='right', for='formDateEdit') Date
-                  .md-form.mb-5
-                    input#formSalaryEdit.form-control.validate(type='text')
-                    label(data-error='wrong', data-success='right', for='formSalaryEdit') Salary
-                .modal-footer.d-flex.justify-content-center.editInsideWrapper
-                  button.btn.btn-outline-secondary.btn-block.editInside(data-dismiss='modal')
-                    | Edit
-                    | form
-                    i.fas.fa-paper-plane-o.ml-1
-          .text-center.buttonEditWrapper
-            button.btn.btn-info.btn-rounded.btn-sm.buttonEdit(data-toggle='modal', data-target='#modalEdit', disabled='')
-              | Edit
-              i.fas.fa-pencil-square-o.ml-1
-          #modalDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalDelete', aria-hidden='true')
-            .modal-dialog(role='document')
-              .modal-content
-                .modal-header.text-center
-                  h4.modal-title.w-100.font-weight-bold.ml-5.text-danger Delete
-                  button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
-                    span(aria-hidden='true') ×
-                .modal-body.mx-3
-                  p.text-center.h4 Are you sure to delete selected row?
-                .modal-footer.d-flex.justify-content-center.deleteButtonsWrapper
-                  button#btnYes.btn.btn-danger.btnYesClass(type='button', data-dismiss='modal') Yes
-                  button#btnNo.btn.btn-primary.btnNoClass(type='button', data-dismiss='modal') No
-          .text-center
-            button.btn.btn-danger.btn-sm.btn-rounded.buttonDelete(data-toggle='modal', disabled='', data-target='#modalDelete')
-              | Delete
-              i.fas.fa-times.ml-1
-        table#dtBasicExample.table.table-striped.table-bordered(cellspacing='0', width='100%')
-          thead
-            tr
-              th.th-sm
-                | Name
-              th.th-sm
-                | Position
-              th.th-sm
-                | Office
-              th.th-sm
-                | Age
-              th.th-sm
-                | Start date
-              th.th-sm
-                | Salary
-          tbody
-            tr(data-href="/").clickable-row
-              td Tiger Nixon
-              td System Architect
-              td Edinburgh
-              td 61
-              td 2011/04/25
-              td $320,800
-            tr.clickable-row
-              td Garrett Winters
-              td Accountant
-              td Tokyo
-              td 63
-              td 2011/07/25
-              td $170,750            
-      script(href='javascripts/menuitems.js')
-      include common/footer.pug
-      +footer()
+        include ../common/navbar.pug   
+        +navbar(user)
+        .container
+            input#RestaurantID.form-control(name="RestaurantID",type='hidden',value=restaurant_id)
+            
+            #modalDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalDelete', aria-hidden='true')              
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header.text-center
+                    h4.modal-title.w-100.font-weight-bold.ml-5.text-danger Delete
+                    button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+                  .modal-body.mx-3
+                    input#DeleteMenuListID.form-control.validate(name="MenuListID",type='hidden')                                  
+                    p.text-center.h4 Are you sure to delete selected row?
+                  .modal-footer.d-flex.justify-content-center.deleteButtonsWrapper
+                    button#btnYes.btn.btn-danger.btnYesClass(type='button',data-dismiss="modal") Yes
+                    button#btnNo.btn.btn-primary.btnNoClass(type='button', data-dismiss='modal') No            
+            #AddMenu.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+              form(action="/restaurant/"+restaurant_id+"/menu/add",method="POST")
+                .modal-dialog(role='document')
+                  .modal-content
+                    .modal-header.text-center
+                      h4#Title.modal-title.w-100.font-weight-bold Add Menu 
+                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×     
+                    .model-body.mx-3                   
+                      .md-form.mb-5
+                        i.fas.fa-utensils.prefix.grey-text
+                        input#MenuName.form-control.validate(name="MenuName",type='text')
+                        label(data-error='wrong', data-success='right') Name  
+                    .modal-footer.d-flex.justify-content-center
+                      //- button#AjaxSubmit.btn.btn-unique
+                      //-   | Send 
+                      //-   i.fas.fa-paper-plane-o.ml-1
+                      input(id="AddMenu",type="submit",value="Add").btn.btn-unique  
+            #EditMenu.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+              form(action="/restaurant/"+restaurant_id+"/menu/edit",method="POST")
+                .modal-dialog(role='document')
+                  .modal-content
+                    .modal-header.text-center
+                      h4#Title.modal-title.w-100.font-weight-bold Edit Menu 
+                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×     
+                    .model-body.mx-3 
+                      .md-form.mb-5
+                        i.fas.fa-utensils.prefix.grey-text
+                        input#MenuName.form-control.validate(name="MenuName",type='text')
+                        label(data-error='wrong', data-success='right') New Name  
+                      input#EditMenuID.form-control(name="EditMenuID",type='hidden')
+                    .modal-footer.d-flex.justify-content-center                      
+                      input(id="AddMenu",type="submit",value="Save").btn.btn-unique                                
+            if user && user.is_admin
+              br
+              a.btn.btn-primary.btn-rounded.btn-sm.my-0.float-right(href="/",data-toggle='modal', data-target='#AddMenu').open-MenuAdd
+                | Add Menu
+            br
+            #DeleteMenu.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalDelete', aria-hidden='true')              
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header.text-center
+                    h4.modal-title.w-100.font-weight-bold.ml-5.text-danger Delete 
+                    button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+                  .modal-body.mx-3
+                    input#DeleteMenuID.form-control.validate(name="DeleteMenuID",type='hidden')                                  
+                    p.text-center.h4 Are you sure to delete selected Menu?
+                  .modal-footer.d-flex.justify-content-center.deleteButtonsWrapper
+                    button#btnYesDelete.btn.btn-danger.btnYesClass(type='button',data-dismiss="modal") Yes
+                    button#btnNoDelete.btn.btn-primary.btnNoClass(type='button', data-dismiss='modal') No
+            each name,key in nameArray
+              br
+              
+              .card(id=MenuIDArray[key])
+                  .card-body
+                      h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 #{name}                        
+                      #modalContactForm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                        form(action="/restaurant/"+restaurant_id+"/"+name,method="POST")
+                          .modal-dialog(role='document')
+                            .modal-content
+                              .modal-header.text-center
+                                h4#Title.modal-title.w-100.font-weight-bold Create New Item 
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                  span(aria-hidden='true') ×                        
+                              .modal-body.mx-3
+                                .md-form.mb-5                                  
+                                  input#MenuID.form-control.validate(name="MenuID",type='hidden')                                  
+                                .md-form.mb-5
+                                  i.fas.fa-user.prefix.grey-text
+                                  input.form-control.validate(name="Name",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Name 
+                                .md-form.mb-5
+                                  i.fas.fa-envelope.prefix.grey-text
+                                  input.form-control.validate(name="Category",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Category
+                                .md-form.mb-5
+                                  i.fas.fa-tag.prefix.grey-text
+                                  input.form-control.validate(name="Price",type='number',step='0.01',required="required")
+                                  label(data-error='wrong', data-success='right') Price
+                                .md-form.mb-5
+                                  i.fas.fa-tag.prefix.grey-text
+                                  input.form-control.validate(name="Size",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Size
+                              .modal-footer.d-flex.justify-content-center
+                                //- button#AjaxSubmit.btn.btn-unique
+                                //-   | Send 
+                                //-   i.fas.fa-paper-plane-o.ml-1
+                                input(id="AddToMenu",type="submit",value="Add").btn.btn-unique                      
+                      #EditForm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='EditLabel', aria-hidden='true')
+                        form(action="/restaurant/"+restaurant_id+"/menu/item/edit",method="POST")
+                          .modal-dialog(role='document')
+                            .modal-content
+                              .modal-header.text-center
+                                h4#Title.modal-title.w-100.font-weight-bold Edit 
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                  span(aria-hidden='true') ×                        
+                              .modal-body.mx-3
+                                .md-form.mb-5                                  
+                                  input#MenuID.form-control.validate(name="MenuID",type='hidden')
+                                  input#Menu_List_Id.form-control.validate(name="MenuListID",type='hidden')                               
+                                .md-form.mb-5
+                                  i.fas.fa-user.prefix.grey-text
+                                  input#Name.form-control.validate(name="Name",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Name
+                                .md-form.mb-5
+                                  i.fas.fa-envelope.prefix.grey-text
+                                  input#Category.form-control.validate(name="Category",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Category
+                                .md-form.mb-5
+                                  i.fas.fa-tag.prefix.grey-text
+                                  input#Price.form-control.validate(name="Price",type='number',step='0.01',required="required")
+                                  label(data-error='wrong', data-success='right') Price
+                                .md-form.mb-5
+                                  i.fas.fa-tag.prefix.grey-text
+                                  input#Size.form-control.validate(name="Size",type='text',required="required")
+                                  label(data-error='wrong', data-success='right') Size
+                              .modal-footer.d-flex.justify-content-center
+                                //- button#AjaxSubmit.btn.btn-unique
+                                //-   | Send 
+                                //-   i.fas.fa-paper-plane-o.ml-1
+                                input(id="AddToMenu",type="submit",value="Save").btn.btn-unique
+                      #table.table-editable
+                      if user && user.is_admin
+                        .text-center
+                          a.btn.btn-primary.btn-sm.btn-rounded.mb-4(href="/", data-toggle='modal', data-target='#modalContactForm', data-id = MenuIDArray[key]).open-AddBookDialog
+                            | Add Item 
+                          a.btn.btn-default.btn-sm.btn-rounded.mb-4(href="/",data-toggle='modal', data-target='#EditMenu',data-id = MenuIDArray[key]).open-MenuEdit
+                            | Edit Menu
+                          a.btn.btn-danger.btn-sm.btn-rounded.mb-4(href="/",data-toggle='modal', data-target='#DeleteMenu',data-id = MenuIDArray[key]).open-MenuDelete
+                            | Delete Menu
+                      table#dtBasicExample.table.table-bordered.table-responsive-md.table-striped.table-hover.table-sm.text-center(cellspacing='0', width='100%')
+                          thread.thread-dark
+                              tr
+                                  th.text-center Name                                  
+                                  th.text-center Category
+                                  th.text-center Price 
+                                  th.text-center Size                            
+                              tr
+                          tbody                        
+                            for data in dataArray[key]
+                              tr(id=data.Menu_List_Id)
+                                td.pt-3-half
+                                    span #{data.Name}                                  
+                                td.pt-3-half
+                                    span #{data.Category}
+                                td.pt-3-half
+                                    span $ #{data.Price}
+                                td.pt-3-half
+                                    span #{data.Size}
+                                //- td.pt-3-half
+                                //-     span.table-up
+                                //-         a.indigo-text(href='#!')
+                                //-         i.fas.fa-long-arrow-alt-up(aria-hidden='true')
+                                //-     span.table-down
+                                //-         a.indigo-text(href='#!')
+                                //-         i.fas.fa-long-arrow-alt-down(aria-hidden='true')
+                                if user && user.is_admin
+                                  td  
+                                    .text-center
+                                      a.btn.btn-primary.btn-rounded.btn-sm.mb-4(href="/",data-menulid = data.Menu_List_Id ,data-toggle='modal',data-name = data.Name,data-category = data.Category,data-price = data.Price, data-size = data.Size,data-target='#EditForm',data-id = MenuIDArray[key]).open-Edit
+                                        | Edit
+                                      |                                   
+                                      a.btn.btn-danger.btn-rounded.btn-sm.mb-4(href="",data-menulid = data.Menu_List_Id,data-toggle='modal',data-target='#modalDelete').open-Delete
+                                        | Delete
+                                    
+    include ../common/footer.pug
+    +footer()
+    //- script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='/javascripts/leads.js')    
+    script.
+      $(document).on("click", ".open-AddBookDialog", function () {
+        let myBookId = $(this).data('id');        
+        $(".modal-body #MenuID").val( myBookId );
+      });
+      $(document).on("click", ".open-MenuEdit", function () {
+        let MenuID = $(this).data('id');        
+        $("#EditMenuID").val( MenuID );        
+      });
+      $(document).on("click", ".open-Delete", function () {
+        let MenuListID = $(this).data('menulid');        
+        $(".modal-body #DeleteMenuListID").val( MenuListID );        
+      });
+      $(document).on("click", ".open-MenuDelete", function () {
+        let MenuID = $(this).data('id');        
+        $(".modal-body #DeleteMenuID").val( MenuID );
+        //- alert(MenuID);        
+      });
+      $(document).on("click","#btnYes",function () {
+        let MenuListID = $("#DeleteMenuListID").val();
+        let restaurant_id =  $("#RestaurantID").val();               
+            $.ajax({
+                type: "POST",
+                async: false,
+                url:"/restaurant/"+restaurant_id+"/menu/item/"+MenuListID+"/delete",
+                dataType: 'json',
+                cache: false,
+                success: function (result) {
+                    console.log("Result: " + result);
+                    $("#"+MenuListID).remove();
+                },
+                error: function () {
+                    alert("server error");
+                }
+            });
+      });
+      
+      $(document).on("click","#btnYesDelete",function () {
+        let MenuID = $("#DeleteMenuID").val();
+        //- alert(MenuID);
+        let restaurant_id =  $("#RestaurantID").val();               
+            $.ajax({
+                type: "POST",
+                async: false,
+                url:"/restaurant/"+restaurant_id+"/menu/"+MenuID+"/delete",
+                dataType: 'json',
+                cache: false,
+                success: function (result) {
+                    console.log("Result: " + result);
+                    $("#"+MenuID).remove();
+                },
+                error: function (error) {
+                    for(let err in error)
+                      alert(err);
+                    alert("server error");
+                }
+            });
+      });
+      $(document).on("click", ".open-Edit", function () {
+        let myBookId = $(this).data('id');
+        let MenuListID = $(this).data('menulid');        
+        let Category = $(this).data('category')
+        let Price= $(this).data('price')
+        let Size = $(this).data('size')
+        let Name = $(this).data('name')
+        $(".modal-body #MenuID").val( myBookId );
+        $(".modal-body #Menu_List_Id").val( MenuListID );
+        $(".modal-body #Name").val( Name );        
+        $(".modal-body #Price").val( Price );
+        $(".modal-body #Category").val( Category );
+        $(".modal-body #Size").val( Size );
+        $(".modal-header #Title").val( "Edit Item" );        
+      });
 
+    

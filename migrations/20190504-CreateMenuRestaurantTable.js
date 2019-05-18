@@ -2,12 +2,15 @@
 module.exports = {
     up:(queryInterface,Sequelize) => {
         return queryInterface.createTable('MenuRestaurant',{
-            
-            MenuID: {
-                allowNull : false,
-                primaryKey: true,
+            ListId:{
+                allowNull : false,                
                 type : Sequelize.UUID,
+                primaryKey: true,
                 defaultValue: Sequelize.UUIDV4,
+            },
+            MenuID: {
+                allowNull : false,                
+                type : Sequelize.UUID,
             },
             RestaurantID : {
                 allowNull: false,

@@ -11,9 +11,123 @@ html(lang='en')
           a.custom-card,
           a.custom-card:hover {
           color: gray;
-          }                  
+          }
+        
         .section
-          h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 #{title}                  
+          h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 #{title}
+          br
+          if failed_messages             
+            .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+              strong ERROR:
+              |  #{failed_messages}
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') ×
+          if warning_messages             
+            .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+              strong WARNING:
+              |  #{warning_messages}
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') ×
+          
+          if user && user.is_admin
+            .container
+              #DeleteRestaurant.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalDelete', aria-hidden='true')              
+                .modal-dialog(role='document')
+                  .modal-content
+                    .modal-header.text-center
+                      h4.modal-title.w-100.font-weight-bold.ml-5.text-danger Delete
+                      button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                    input#DeleteRestaurantID.form-control.validate(name="DeleteRestaurantID",type='hidden')                                  
+                    .modal-body.mx-3
+                      p.text-center.h4 Are you sure to delete selected restaurant?
+                    .modal-footer.d-flex.justify-content-center.deleteButtonsWrapper
+                      button#btnYes.btn.btn-danger.btnYesClass(type='button',data-dismiss="modal") Yes
+                      button#btnNo.btn.btn-primary.btnNoClass(type='button', data-dismiss='modal') No     
+              #AddRestaurant.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                form(action="/restaurant/add",method="POST")
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header.text-center
+                        h4#Title.modal-title.w-100.font-weight-bold Create New Restaurant 
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×                        
+                      .modal-body.mx-3                        
+                        .md-form.mb-5
+                          i.fas.fa-utensils.prefix.grey-text
+                          input#Name.form-control.validate(name="Name",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Name 
+                        .md-form.mb-5
+                          i.fas.fa-clock.prefix.grey-text                          
+                          textarea#Hours.md-textarea.form-control(name="Hours",type='text',rows='4',required="required")
+                          label(data-error='wrong', data-success='right') Opening Hours
+                        .md-form.mb-5
+                          i.fas.fa-address-book.prefix.grey-text
+                          input#X.form-control.validate(name="X",type='number',required="required")
+                          label(data-error='wrong', data-success='right') X
+                        .md-form.mb-5
+                          i.fas.fa-address-book.prefix.grey-text
+                          input#Y.form-control.validate(name="Y",type='number',required="required")
+                          label(data-error='wrong', data-success='right') Y
+                        .md-form.mb-5
+                          i.fas.fa-file-word.prefix.grey-text
+                          input#Description.form-control.validate(name="Description",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Description
+                        .md-form.mb-5
+                          i.fas.fa-file-word.prefix.grey-text
+                          input#Theme.form-control.validate(name="Theme",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Theme
+                      .modal-footer.d-flex.justify-content-center
+                        //- button#AjaxSubmit.btn.btn-unique
+                        //-   | Send 
+                        //-   i.fas.fa-paper-plane-o.ml-1
+                        input(id="AddToRestaurant",type="submit",value="Add").btn.btn-unique 
+              #EditRestaurant.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                form(action="/restaurant/edit",method="POST")
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header.text-center
+                        h4#Title.modal-title.w-100.font-weight-bold Edit Restaurant 
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×                        
+                      .modal-body.mx-3                                            
+                        .md-form.mb-5
+                          i.fas.fa-utensils.prefix.grey-text
+                          input#EditName.form-control.validate(name="Name",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Name 
+                        .md-form.mb-5
+                          i.fas.fa-clock.prefix.grey-text                          
+                          textarea#EditHours.md-textarea.form-control(name="Hours",type='text',rows='4',required="required")
+                          label(data-error='wrong', data-success='right') Opening Hours
+                        input#EditRestaurantID.form-control(name="EditRestaurantID",type='hidden')
+                        input#EditRestaurantName.form-control(name="EditRestaurantName",type='hidden')
+                        .md-form.mb-5
+                          i.fas.fa-address-book.prefix.grey-text
+                          input#EditX.form-control.validate(name="X",type='number',required="required")
+                          label(data-error='wrong', data-success='right') X
+                        .md-form.mb-5
+                          i.fas.fa-address-book.prefix.grey-text
+                          input#EditY.form-control.validate(name="Y",type='number',required="required")
+                          label(data-error='wrong', data-success='right') Y
+                        .md-form.mb-5
+                          i.fas.fa-file-word.prefix.grey-text
+                          input#EditDescription.form-control.validate(name="Description",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Description
+                        .md-form.mb-5
+                          i.fas.fa-file-word.prefix.grey-text
+                          input#EditTheme.form-control.validate(name="Theme",type='text',required="required")
+                          label(data-error='wrong', data-success='right') Theme
+                      .modal-footer.d-flex.justify-content-center
+                        //- button#AjaxSubmit.btn.btn-unique
+                        //-   | Send 
+                        //-   i.fas.fa-paper-plane-o.ml-1
+                        input(id="AddToRestaurant",type="submit",value="Add").btn.btn-unique 
+              .text-center
+                a.btn.btn-default.btn-sm.btn-rounded.mb-4.float-right(data-toggle='modal', data-target='#AddRestaurant').open-AddRestaurant
+                  | Add Restaurant            
+
+                br
+                br
           .container.col-md-6
             //- h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Search                  
             nav.navbar.navbar-light.bg-light.sticky-top.align-items-center.col-md-12
@@ -38,32 +152,88 @@ html(lang='en')
                             b Y
                             input(type='number',name="Y" placeholder='0', aria-label='Search',max="100",min='0')                           
                       button.btn.aqua-gradient.btn-rounded.btn-sm.my-0(type='submit') Search  
-          .container                          
-              
+          br
+          .container
+              if expressFlash                  
+                .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+                  strong WARNING:
+                  |  #{expressFlash}
+                  button.close(type='button', data-dismiss='alert', aria-label='Close')
+                    span(aria-hidden='true') ×                                                             
               if restaurants
                 for restaurant in restaurants
-                    a(href='/restaurant/'+restaurant.RestaurantID+'/menu')                 
-                      .card
-                        // Card content
-                        .card-body.elegant-color.white-text.rounded-bottom.bg-info.mb-3                  
-                          // Title
-                          h4.card-title #{restaurant.Name}
-                          hr.hr-light
-                          // Text
-                          p.card-text.white-text.mb-4
-                            | Description: #{restaurant.Description}
-                          p.card-text.white-text.mb-4
-                            | Opening Hour: #{restaurant.Opening_Hours}
-                          p.card-text.white-text.mb-4
-                            | Location: (#{restaurant.X},#{restaurant.Y}) 
-                          p.card-text.white-text.mb-4
-                            | Theme: #{restaurant.Theme}
-                          // Link
-                          a.white-text.d-flex.justify-content-end(href='/restaurant/'+restaurant.RestaurantID)
-                            h5
-                              | Learn More 
-                              i.fas.fa-angle-double-right
-                    br
-                    // Card Dark      
-                 
+                  .card.bg-light(id=restaurant.RestaurantID)
+                    if user && user.is_admin
+                      .text-center
+                        a.btn.btn-danger.btn-sm.btn-rounded.mb-4.float-right(data-toggle='modal', data-target='#DeleteRestaurant',data-id = restaurant.RestaurantID, data-description = restaurant.Description ,data-theme = restaurant.Theme,data-x = restaurant.X,data-y=restaurant.Y,data-name = restaurant.Name,data-openinghours = restaurant.Opening_Hours).open-RemoveRestaurant
+                          | Remove 
+                        a.btn.btn-default.btn-sm.btn-rounded.mb-4.float-right(data-toggle='modal', data-target='#EditRestaurant',data-id = restaurant.RestaurantID, data-description = restaurant.Description ,data-theme = restaurant.Theme,data-x = restaurant.X,data-y=restaurant.Y,data-name = restaurant.Name,data-openinghours = restaurant.Opening_Hours).open-EditRestaurant
+                          | Edit 
+                    a(href='/restaurant/'+restaurant.RestaurantID+'/menu')                                           
+                      .card-body.elegant-color.white-text.rounded-bottom.bg-info.mb-3 
+                        // Title
+                        .text-center
+                          h4.card-title #{restaurant.Name}                                      
+                        hr.hr-light
+                        // Text
+                        p.card-text.white-text.mb-4
+                          | Description: #{restaurant.Description}
+                        p.card-text.white-text.mb-4
+                          | Opening Hour: #{restaurant.Opening_Hours}
+                        p.card-text.white-text.mb-4
+                          | Location: (#{restaurant.X},#{restaurant.Y}) 
+                        p.card-text.white-text.mb-4
+                          | Theme: #{restaurant.Theme}                    
+                        // Link
+                        a.white-text.d-flex.justify-content-end(href='/restaurant/'+restaurant.RestaurantID+"/menu")
+                          h5
+                            | Learn More 
+                            i.fas.fa-angle-double-right
+                  br
                     
+
+    include ../common/footer.pug
+    +footer()
+    script.
+      $(document).on("click", ".open-MenuDelete", function () {
+          let RestaurantID = $(this).data('id');        
+          $(".modal-body #DeleteRestaurantID").val( RestaurantID );
+          //- alert(MenuID);        
+      });
+      $(document).on("click", ".open-EditRestaurant", function () {
+        let RestaurantID = $(this).data('id');        
+        $("#EditRestaurantID").val( RestaurantID );        
+        let Hours = $(this).data('openinghours')
+        let Name = $(this).data('name');        
+        let Description = $(this).data('description')
+        let x= $(this).data('x')
+        let y = $(this).data('y')
+        let Theme = $(this).data('theme')        
+        $(".modal-body #EditName").val( Name );
+        $(".modal-body #EditDescription").val( Description );  
+        $(".modal-body #EditHours").val( Hours );  
+        $(".modal-body #EditX").val( x );
+        $(".modal-body #EditY").val( y );
+        $(".modal-body #EditTheme").val(Theme);
+      });
+
+      $(document).on("click","#btnYes",function () {
+        let RestaurantID = $("#DeleteRestaurantID").val();
+        //- alert(MenuID);        
+            $.ajax({
+                type: "POST",
+                async: false,
+                url:"/restaurant/"+RestaurantID+"delete",
+                dataType: 'json',
+                cache: false,
+                success: function (result) {
+                    console.log("Result: " + result);
+                    $("#"+RestaurantID).remove();
+                },
+                error: function (error) {
+                    //- for(let err in error)
+                    //-   //- alert(err);
+                    alert("server error");
+                }
+            });
+      });

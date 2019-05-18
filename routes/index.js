@@ -37,5 +37,30 @@ router.get('/restaurants',restaurant.get_restaurants);
 // SEARCHING RESTAURANTS WITH SPECIFC LOCATION
 router.post('/restaurants/search',restaurant.get_selected_restaurant);
 
+// ADDING MENU ITEM TO RESTAURANTS
+router.post('/restaurant/:restaurant_id/:MenuID',hasAuth,restaurant.add_menu_item);
 
+// EDITING MENU ITEM TO RESTAURANTS
+router.post('/restaurant/:restaurant_id/menu/item/edit',hasAuth,restaurant.menu_item_edit);
+
+// DELETING MENU ITEM TO RESTAURANTS
+router.post('/restaurant/:restaurant_id/menu/item/:menulistid/delete',hasAuth,restaurant.delete_menu_item);
+
+// ADDING MENU TO RESTAURANT
+router.post('/restaurant/:restaurant_id/menu/add',hasAuth,restaurant.add_menu);
+
+// EDITING MENU TO RESTAURANT
+router.post("/restaurant/:restaurant_id/menu/edit",hasAuth,restaurant.edit_menu);
+
+// DELETING MENU TO RESTAURANT
+router.post("/restaurant/:restaurant_id/menu/:MenuID/delete",restaurant.delete_menu);
+
+// ADDING NEW RESTAURANT
+router.post("/restaurant/add",restaurant.add_restaurant);
+
+// EDITING NEW RESTAURANT
+router.post("/restaurant/edit",restaurant.edit_restaurant);
+
+// DELETING RESTAURANT 
+router.post("/restaurant/:restaurant_id/delete",restaurant.delete_restaurant);
 module.exports = router;

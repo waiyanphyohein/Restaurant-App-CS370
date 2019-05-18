@@ -1,15 +1,21 @@
 doctype html
 html(lang='en')
-  include common/head.pug
+  include ../common/head.pug
   +head("Starter MVP")
-    body
-        h1= Lead
-        p 
-            span #{lead.email}
-            |
-            a(href = "/lead/" + lead.id + "/edit") Edit
-            |
-            form(action="/lead/"+lead.id+"/delete",method="POST")
-                button(type="submit") DELETE
-          include common/footer.pug
-          +footer()
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(user)
+      .container  
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-6
+      h1= Lead
+      p 
+          span Ok
+          |
+          a(href = "/lead/edit") Edit
+          |
+          form(action="/lead/delete",method="POST")
+              button(type="submit") DELETE
+    include ../common/footer.pug
+    +footer()
